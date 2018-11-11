@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -16,7 +17,10 @@
             <h1>Survey</h1>
         </div>
         <form>
-
+            <div class="form-group">
+                <label for="user-name">What is your name?</label>
+                <input type="text" class="form-control" id="user-name">
+            </div>
             <div class="form-group">
                 <label for="question1">1. I would love to have a home on the beach.</label>
                 <select id="question1">
@@ -48,7 +52,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="question4">4.I would like to live to the age of 90 but retain the mind and the body of a 30-year-old for the last 60 years of my life.</label>
+                <label for="question4">4. I would like to live to the age of 90 but retain the mind and the body of a 30-year-old for the last 60 years of my life.</label>
                 <select id="question4">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -117,8 +121,42 @@
                     <option value="5">5</option>
                 </select>
             </div>
+            <button type="submit" class="btn btn-primary submit">Submit</button>
         </form>
+
+        <div class="footer">
+            <div class="container">
+                <p><a href="/api/friends">API link</a></p>
+            </div>
+        </div>
     </div>
 </body>
 
 </html>
+
+<script type="text/javascript">
+    $(".submit").on("click", function(event) {
+        event.preventDefault();
+        console.log("button clicked");
+
+        var newFriend = {
+            name: $("#user-name").val().trim(),
+            scores: [
+                $("#question1").val(),
+                $("#question2").val(),
+                $("#question3").val(),
+                $("#question4").val(),
+                $("#question5").val(),
+                $("#question6").val(),
+                $("#question7").val(),
+                $("#question8").val(),
+                $("#question9").val(),
+                $("#question10").val()
+            ]
+        };
+        console.log(newFriend);
+    
+        $.post("/api/friends", newFriend);
+    });
+
+</script>

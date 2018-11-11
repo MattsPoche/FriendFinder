@@ -14,11 +14,8 @@ app.use(bodyParser.json());
 //The below points the server to a series of route files.
 
 require("./app/routes/htmlRoutes")(app);
+require("./app/routes/apiRoutes")(app);
 
-
-app.get("/", function(req, res){
-    res.send("Hello, World!");
-});
 
 app.listen(PORT, function(){
     console.log("App listening on Port: " + PORT);
