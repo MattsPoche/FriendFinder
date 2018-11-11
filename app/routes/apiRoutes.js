@@ -18,5 +18,6 @@ module.exports = function(app) {
         fs.writeFile(path.join(__dirname, "../data/friends.json"), JSON.stringify(friends), (err) => {
             if(err) throw(err);
         });
+        res.json(require("../data/finder.js")(friends));
     });
 }

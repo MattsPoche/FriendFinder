@@ -124,6 +124,10 @@
             <button type="submit" class="btn btn-primary submit">Submit</button>
         </form>
 
+        <div class="container">
+            <h6 id="result"></h6>
+        </div>
+
         <div class="footer">
             <div class="container">
                 <p><a href="/api/friends">API link</a></p>
@@ -156,7 +160,9 @@
         };
         console.log(newFriend);
     
-        $.post("/api/friends", newFriend);
+        $.post("/api/friends", newFriend, function(data) {
+            $("#result").text(data);
+        });
     });
 
 </script>
