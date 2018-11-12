@@ -17,6 +17,5 @@ module.exports = function(data) {
             index = i;
         }
     }
-    console.log(friendScore, totalScore, friendScore - totalScore);
     return data[index].name;
 }
