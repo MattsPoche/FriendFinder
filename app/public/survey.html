@@ -12,6 +12,20 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a href="/" class="navbar-brand mb-1 h1">FriendFinder</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
+            aria-controls="navbar-links" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-links">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/survey">Take the Survey!</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <div class="container">
         <div class="page-header">
             <h1>Survey</h1>
@@ -42,7 +56,9 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="question3">3. I would rather leave my hometown and never be able to return again, than stay in my hometown but never be able to leave.</label>
+                <label for="question3">3. I would rather leave my hometown and never be able to return again, than stay
+                    in
+                    my hometown but never be able to leave.</label>
                 <select id="question3">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -52,7 +68,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="question4">4. I would like to live to the age of 90 but retain the mind and the body of a 30-year-old for the last 60 years of my life.</label>
+                <label for="question4">4. I would like to live to the age of 90 but retain the mind and the body of a
+                    30-year-old for the last 60 years of my life.</label>
                 <select id="question4">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -62,7 +79,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="question5">5. If a crystal ball could tell you the truth about yourself, would you want to know?</label>
+                <label for="question5">5. If a crystal ball could tell you the truth about yourself, would you want to
+                    know?</label>
                 <select id="question5">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -72,7 +90,9 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="question6">6. If a crystal ball could tell you the truth about your future, would you want to know?</label>
+                <label for="question6">6. If a crystal ball could tell you the truth about your future, would you want
+                    to
+                    know?</label>
                 <select id="question6">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -139,7 +159,7 @@
 </html>
 
 <script type="text/javascript">
-    $(".submit").on("click", function(event) {
+    $(".submit").on("click", function (event) {
         event.preventDefault();
         console.log("button clicked");
 
@@ -159,8 +179,8 @@
             ]
         };
         console.log(newFriend);
-    
-        $.post("/api/friends", newFriend, function(data) {
+
+        $.post("/api/friends", newFriend, function (data) {
             $("#result").text(data);
         });
     });

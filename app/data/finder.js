@@ -1,4 +1,3 @@
-
 module.exports = function(data) {
     var totalScore = 0;
     var scoreDif = 25; 
